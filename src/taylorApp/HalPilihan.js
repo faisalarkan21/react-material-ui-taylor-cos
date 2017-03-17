@@ -42,7 +42,7 @@ const styles = {
 const DivFitur = (
 
     <div className={"row"}>
-        <div className="col-md-14 col-md-offset-2" style={{
+        <div className="col-md-14 col-md-offset-3" style={{
             paddingTop: 5
         }}>
 
@@ -51,31 +51,36 @@ const DivFitur = (
                     <MenuItem
                         style={styles.huruf}
                         primaryText="Penghitungan Cos Tylor "
-                        leftIcon={< ArahKiri viewBox = {
+                         containerElement={< Link to = "/cos" />}
+                        rightIcon={< Memory viewBox = {
                         "0 0 24 24"
                     } />}/>
 
                     <MenuItem
                         style={styles.huruf}
                         primaryText="Penghitungan Sin Tylor"
-                        leftIcon={< ArahKiri viewBox = {
+                         containerElement={< Link to = "/sin" />}
+                        rightIcon={< Memory viewBox = {
                         "0 0 24 24"
                     } />}/>
                     <MenuItem
                         style={styles.huruf}
                         primaryText="Penghitunga Tan Tylor"
-                        leftIcon={< ArahKiri />}/>
+                         containerElement={< Link to = "/tan" />}
+                        rightIcon={< Memory />}/>
 
                 </div>
                 <div className={"col-md-11"}>
                     <MenuItem
                         style={styles.huruf}
                         primaryText="Penghitungan Exponent"
-                        leftIcon={< ArahKiri />}/>
+                         containerElement={< Link to = "/ex" />}
+                        rightIcon={< Memory />}/>
                     <MenuItem
                         style={styles.huruf}
                         primaryText="Penghitungan Nilai Turunan"
-                        leftIcon={< ArahKiri />}/>
+                         containerElement={< Link to = "/turunan" />}
+                        rightIcon={< Memory />}/>
 
                 </div>
 
