@@ -198,7 +198,7 @@ class MyForm extends React.Component {
     render() {
         return (
             <div >
-                <form className="reactForm col-md-14 ">
+                <form className="reactForm col-md-14 " style={{marginLeft:30}}>
 
                     <div className={"row"}>
 
