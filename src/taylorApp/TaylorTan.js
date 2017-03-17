@@ -113,7 +113,7 @@ export default class Taylor extends React.Component {
                                     fontSize: 15,
                                     lineHeight: 1.5
                                 }}>
-                                    Masukan nilai Cos dibawah ini, penghitungan dilakukan secara otomatis.
+                                    Masukan nilai Tan dibawah ini, penghitungan dilakukan secara otomatis.
 
                                 </p>
                                 <Divider
@@ -164,8 +164,8 @@ class MyForm extends React.Component {
         super(props);
 
         this.state = {
-            hasil: 1,
-            degree: 1
+            hasil: 0,
+            degree: 0
         }
 
         this.handleInputChange = this
@@ -181,12 +181,12 @@ class MyForm extends React.Component {
             .onChange(e.target.value);
         console.log(e.target.value);
         var result = Math
-            .cos(e.target.value)
+            .tan(e.target.value)
             .toFixed(4);
 
         this.setState({
             degree: Math
-                .cos(e.target.value * (Math.PI / 180))
+                .tan(e.target.value * (Math.PI / 180))
                 .toFixed(4)
         });
         // console.log(this.state.hasil)
@@ -236,8 +236,8 @@ class MyForm extends React.Component {
                                     <TextField
                                         onChange={this.handleInputChange}
                                         style={style.lebarInput}
-                                        floatingLabelText="Masukan Nilai Cos"
-                                        hintText="Cos 0"
+                                        floatingLabelText="Masukan Nilai Tan"
+                                        hintText="Tan 0"
                                         type={"number"}></TextField>
                                 </ListItem>
                             </div>
@@ -293,7 +293,7 @@ class MyForm extends React.Component {
                                     }}
                                         hintText="Nilai Cos"
                                         defaultValue={0}
-                                        value={"Hasil Derajat : " + this.state.degree + String.fromCharCode(176)}></TextField>
+                                        value={"Hasil Derajat : " + this.state.degree }></TextField>
                                 </ListItem>
                             </div>
                         </div>
