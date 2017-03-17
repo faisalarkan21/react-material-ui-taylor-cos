@@ -13,6 +13,8 @@ import Rotate from 'material-ui/svg-icons/image/rotate-90-degrees-ccw';
 import Build from 'material-ui/svg-icons/action/build'
 import Hub from 'material-ui/svg-icons/hardware/device-hub'
 
+import MathJs from 'mathjs'
+
 import './flexboxgrid.css';
 
 const muiTheme = getMuiTheme({palette: {
@@ -21,7 +23,7 @@ const muiTheme = getMuiTheme({palette: {
 
 const style = {
     paperDaftar: {
-        height: 550,
+        height: 520,
         width: 700,
         marginTop: 20,
         display: 'inline-block'
@@ -92,10 +94,10 @@ export default class Taylor extends React.Component {
                                     rightIcon={< Hub color = {
                                     '#424242'
                                 }
-                                style = {{marginRight:140, width: 40, height: 40, marginTop:24}}/>}>
+                                style = {{marginRight:100, width: 40, height: 40, marginTop:24}}/>}>
 
                                     <h2>
-                                        Penghitungan Nilai Cos Taylor
+                                        Penghitungan Nilai Turunan Taylor
                                     </h2>
                                 </ListItem>
                             </div>
@@ -113,7 +115,7 @@ export default class Taylor extends React.Component {
                                     fontSize: 15,
                                     lineHeight: 1.5
                                 }}>
-                                    Masukan nilai Tan dibawah ini, penghitungan dilakukan secara otomatis.
+                                    Masukan nilai Turunan dibawah ini, penghitungan dilakukan secara otomatis.
 
                                 </p>
                                 <Divider
@@ -122,7 +124,7 @@ export default class Taylor extends React.Component {
                                 }}/>
                             </div>
 
-                            <div className={"col-md-15 col-md-offset-1"}>
+                            <div className={"col-md-15 "}>
 
                                 <div ></div>
 
@@ -134,7 +136,7 @@ export default class Taylor extends React.Component {
                             </div>
 
                             <br/>
-
+                            <br/><br/>
                             <Divider/>
                             <br/>
 
@@ -146,6 +148,7 @@ export default class Taylor extends React.Component {
                                 className={"col-md-10 "}>
 
                                 <LinearProgress/>
+
                             </div>
                         </Paper>
                     </div>
@@ -164,8 +167,8 @@ class MyForm extends React.Component {
         super(props);
 
         this.state = {
-            hasil: 0,
-            degree: 0
+            hasil: 1,
+            degree: 1
         }
 
         this.handleInputChange = this
@@ -180,15 +183,9 @@ class MyForm extends React.Component {
             .props
             .onChange(e.target.value);
         console.log(e.target.value);
-        var result = Math
-            .tan(e.target.value)
-            .toFixed(4);
+        var result = MathJs.derivative('x^3 + x', 'x').eval({x:e.target.value})
+      
 
-        this.setState({
-            degree: Math
-                .tan(e.target.value * (Math.PI / 180))
-                .toFixed(4)
-        });
         // console.log(this.state.hasil)
         this.setState({hasil: result})
 
@@ -201,7 +198,7 @@ class MyForm extends React.Component {
     render() {
         return (
             <div >
-                <form className="reactForm col-md-12 ">
+                <form className="reactForm col-md-14 ">
 
                     <div className={"row"}>
 
@@ -209,96 +206,138 @@ class MyForm extends React.Component {
                             style={{
                             marginRight: 70
                         }}
-                            className={"col-md-5"}>
+                            className={"col-md-4"}>
 
                             <div
                                 style={{
-                                marginBottom: -50
-                            }}
-                                className={"col-md-offset-1"}>
+                                marginBottom: -50,
+                                marginLeft: 40
+                            }}>
 
                                 <h4>
-                                    Masukan Nilai :
+                                    Rumus Awal :
 
                                 </h4>
 
                             </div>
                             <div
                                 style={{
-                                marginTop: 10
+                                marginTop: 40
                             }}>
                                 <ListItem
                                     leftIcon={< Memory color = {
                                     '#424242'
                                 }
-                                style = {{marginLeft:33 , marginTop:53}}/>}
+                                style = {{marginLeft:33 , marginTop:28}}/>}
                                     disabled={true}>
                                     <TextField
-                                        onChange={this.handleInputChange}
                                         style={style.lebarInput}
-                                        floatingLabelText="Masukan Nilai Tan"
-                                        hintText="Tan 0"
-                                        type={"number"}></TextField>
+                                        value={"f(x) = x(x^2+1)"}
+                                        hintText="Exponent 0"></TextField>
                                 </ListItem>
                             </div>
-                            <div
+                             <div
                                 style={{
-                                marginTop: -15
-                            }}
-                                className={"col-md-offset-1"}>
+                                marginBottom: -50,
+                                marginLeft: 40
+                            }}>
 
                                 <h4>
-                                    Hasil penghitungan :
+                                 Turunan :
 
                                 </h4>
 
                             </div>
-
                             <div
                                 style={{
-                                marginTop: -15
+                                marginTop: 40
                             }}>
                                 <ListItem
-                                    leftIcon={< Rotate color = {
+                                    leftIcon={< Memory color = {
                                     '#424242'
                                 }
-                                style = {{marginLeft:33 , marginTop:27}}/>}
+                                style = {{marginLeft:33 , marginTop:28}}/>}
                                     disabled={true}>
                                     <TextField
                                         style={style.lebarInput}
-                                        errorStyle={{
-                                        color: 'red'
-                                    }}
-                                        hintText="Nilai Cos"
-                                        defaultValue={0}
-                                        value={"Hasil Radian : " + this.state.hasil + String.fromCharCode(176)}></TextField>
-                                </ListItem>
-                            </div>
-                            <br/>
-
-                            <div
-                                style={{
-                                marginTop: -40
-                            }}>
-                                <ListItem
-                                    leftIcon={< Rotate color = {
-                                    '#424242'
-                                }
-                                style = {{marginLeft:33 , marginTop:27}}/>}
-                                    disabled={true}>
-                                    <TextField
-                                        style={style.lebarInput}
-                                        errorStyle={{
-                                        color: 'red'
-                                    }}
-                                        hintText="Nilai Cos"
-                                        defaultValue={0}
-                                        value={"Hasil Derajat : " + this.state.degree }></TextField>
+                                        value={"f'(x) = (3x^2+1)"}
+                                        hintText="Exponent 0"></TextField>
                                 </ListItem>
                             </div>
                         </div>
+                        <div className={"col-md-14"} style={{marginLeft:-40}}>
+                            <div>
+                                <div
+                                    style={{
+                                    marginBottom: -50
+                                }}
+                                    className={"col-md-offset-1"}>
 
+                                    <h4>
+                                        Masukan Nilai Turunan :
+
+                                    </h4>
+
+                                </div>
+                                <div style={{}}>
+                                    <ListItem
+                                        leftIcon={< Memory color = {
+                                        '#424242'
+                                    }
+                                    style = {{marginLeft:33 , marginTop:53}}/>}
+                                        disabled={true}>
+                                        <TextField
+                                            onChange={this.handleInputChange}
+                                            style={style.lebarInput}
+                                            floatingLabelText="Masukan Nilai x"
+                                            hintText="f(0)"
+                                            type={"number"}></TextField>
+                                    </ListItem>
+                                </div>
+
+                                <div
+                                    style={{
+                                    marginTop: -15
+                                }}
+                                    className={"col-md-offset-1"}>
+
+                                    <h4>
+                                        Hasil penghitungan :
+
+                                    </h4>
+
+                                </div>
+
+                                <div
+                                    style={{
+                                    marginTop: -15
+                                }}>
+                                    <ListItem
+                                        leftIcon={< Rotate color = {
+                                        '#424242'
+                                    }
+                                    style = {{marginLeft:33 , marginTop:27}}/>}
+                                        disabled={true}>
+                                        <TextField
+                                            style={style.lebarInput}
+                                            errorStyle={{
+                                            color: 'red'
+                                        }}
+                                            hintText="Nilai Cos"
+                                            defaultValue={0}
+                                            value={"Hasil : " + this.state.hasil}></TextField>
+                                    </ListItem>
+                                </div>
+                                <br/>
+
+                                <div
+                                    style={{
+                                    marginTop: -40
+                                }}></div>
+                            </div>
+                        </div>
                     </div>
+
                 </form>
             </div>
         );

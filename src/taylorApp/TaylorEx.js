@@ -92,10 +92,10 @@ export default class Taylor extends React.Component {
                                     rightIcon={< Hub color = {
                                     '#424242'
                                 }
-                                style = {{marginRight:140, width: 40, height: 40, marginTop:24}}/>}>
+                                style = {{marginRight:100, width: 40, height: 40, marginTop:24}}/>}>
 
                                     <h2>
-                                        Penghitungan Nilai Cos Taylor
+                                        Penghitungan Nilai Exponensial Taylor
                                     </h2>
                                 </ListItem>
                             </div>

@@ -95,7 +95,7 @@ export default class Taylor extends React.Component {
                                 style = {{marginRight:140, width: 40, height: 40, marginTop:24}}/>}>
 
                                     <h2>
-                                        Penghitungan Nilai Cos Taylor
+                                        Penghitungan Nilai Sin Taylor
                                     </h2>
                                 </ListItem>
                             </div>
