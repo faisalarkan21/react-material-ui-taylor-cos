@@ -74,7 +74,7 @@ export default class Taylor extends React.Component {
             <MuiThemeProvider muiTheme={muiTheme}>
                 <div>
                     <div
-                        className={"col-md-10 col-md-offset-3"}
+                        className={"col-md-15 col-md-offset-3"}
                         style={{
                         paddingRight: 60
                     }}>

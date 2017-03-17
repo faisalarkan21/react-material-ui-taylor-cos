@@ -16,12 +16,22 @@ import Database from 'material-ui/svg-icons/file/cloud-off';
 import Memory from 'material-ui/svg-icons//hardware/memory';
 import MenuItem from 'material-ui/MenuItem';
 import Menu from 'material-ui/Menu';
+import ArahKiri from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
+import Bookmark from 'material-ui/svg-icons';
 
 var Link = require('react-router').Link;
 import RaisedButton from 'material-ui/RaisedButton';
 const muiTheme = getMuiTheme({palette: {
         // accent1Color: deepOrange500
     }});
+
+const styles = {
+
+    huruf: {
+        fontSize: 15
+    }
+
+}
 
 // const DivFitur = (     <div>         <Fitur nomor={"Penjadwalan pengajaran
 // untuk asisten agar pengajaran dapat berjalan dengan terstruktur  "}/> <Fitur
@@ -31,35 +41,48 @@ const muiTheme = getMuiTheme({palette: {
 
 const DivFitur = (
 
-    <div className="col-md-2 col-md-offset-3" style={{
-        paddingTop: 5
-    }}>
-        <Menu>
+    <div className={"row"}>
+        <div className="col-md-14 col-md-offset-2" style={{
+            paddingTop: 5
+        }}>
 
-            <MenuItem
-                primaryText="Penghitungan Nilai - Cos Tylor "
-                leftIcon={< Memory viewBox = {
-                "0 0 24 24"
-            } />}/>
+            <Menu >
+                <div className={"col-md-11"}>
+                    <MenuItem
+                        style={styles.huruf}
+                        primaryText="Penghitungan Cos Tylor "
+                        leftIcon={< ArahKiri viewBox = {
+                        "0 0 24 24"
+                    } />}/>
 
-            <MenuItem
-                primaryText="Penghitungan Nilai - Sin Tylor"
-                leftIcon={< Memory viewBox = {
-                "0 0 24 24"
-            } />}/>
-            <MenuItem
-                primaryText="Penghitungan Nilai - Tan Tylor"
-                leftIcon={< Memory />}/>
-            <MenuItem
-                primaryText="Penghitungan Nilai Exponent"
-                leftIcon={< Memory />}/>
-            <MenuItem
-                primaryText="Penghitungan Nilai Turunan"
-                leftIcon={< Memory />}/>
+                    <MenuItem
+                        style={styles.huruf}
+                        primaryText="Penghitungan Sin Tylor"
+                        leftIcon={< ArahKiri viewBox = {
+                        "0 0 24 24"
+                    } />}/>
+                    <MenuItem
+                        style={styles.huruf}
+                        primaryText="Penghitunga Tan Tylor"
+                        leftIcon={< ArahKiri />}/>
 
-        </Menu>
+                </div>
+                <div className={"col-md-11"}>
+                    <MenuItem
+                        style={styles.huruf}
+                        primaryText="Penghitungan Exponent"
+                        leftIcon={< ArahKiri />}/>
+                    <MenuItem
+                        style={styles.huruf}
+                        primaryText="Penghitungan Nilai Turunan"
+                        leftIcon={< ArahKiri />}/>
+
+                </div>
+
+            </Menu>
+        </div>
+
     </div>
-
 )
 
 const TombolNext = (
@@ -77,9 +100,7 @@ const TombolNext = (
     </div>
 
 )
-
 const Text = {
-
     Judul: (
 
         <label>
@@ -88,11 +109,10 @@ const Text = {
     ),
     Badan: (
 
-        <label>Berikut beberapa pilihan penghitungan, yang disediakan :
+        <label>Berikut beberapa pilihan penghitungan yang kami sediakan.
         </label>
 
     )
-
 }
 
 export default class Welcome extends Component {
@@ -137,5 +157,4 @@ export default class Welcome extends Component {
             .then(json => console.log(json));
 
     }
-
 }

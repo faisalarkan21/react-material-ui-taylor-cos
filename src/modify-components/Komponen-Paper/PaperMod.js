@@ -21,6 +21,8 @@ import ContentSend from 'material-ui/svg-icons/content/send';
 import ContentDrafts from 'material-ui/svg-icons/content/drafts';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
+
+
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -29,13 +31,13 @@ var Link = require('react-router').Link
 const styles = {
 
     paperWellcome: {
-        height: 440,
+        height: 520,
         // flex: 1, width:'20%', order:4,  flexShrink: 4, margin: 10,
-        width: "100%",
+        width: 1200,
         textAlign: 'center'
     },
     divPaper: {
-        marginTop: 55,
+        marginTop: 40,
         marginRight: 60
     },
     divContent: {
@@ -105,13 +107,16 @@ export default class PaperMod extends Component {
                     </div>
                     <DividerMod/>
                     <div style={styles.Badan}>
+                    
                         <div>
                             <label>
                                 <div>
                                     <div style={this.props.styleBadan}>
                                         {this.props.body}
                                     </div>
-
+                                    <br/>
+                                    
+ <DividerMod/>
                                     <div>
                                         {this.props.Optional}
                                     </div>
@@ -124,7 +129,8 @@ export default class PaperMod extends Component {
                         <br/>
 
                         <DividerMod/>
-                        <br/>
+                          <br/>
+                      
                         <div style={styles.Stepper}>
 
                             <LinearProgress/>

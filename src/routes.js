@@ -14,10 +14,8 @@ injectTapEventPlugin();
 const Routes = (props) => (
   <Router {...props}>
 
-    <Route path="/">
-      <IndexRedirect to="/cos"/>
-
-    </Route>
+    <Route path="/" component={HalPilihan}/>
+   
 
     <Route path="/cos" component={TaylorCos}/>
     <Route path="/sin" component={TaylorSin}/>
