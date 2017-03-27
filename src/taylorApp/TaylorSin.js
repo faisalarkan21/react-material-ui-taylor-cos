@@ -185,9 +185,7 @@ class MyForm extends React.Component {
             .toFixed(4);
 
         this.setState({
-            degree: Math
-                .sin(e.target.value * (Math.PI / 180))
-                .toFixed(4)
+            degree: this.toDegrees(e.target.value)
         });
         // console.log(this.state.hasil)
         this.setState({hasil: result})
@@ -195,7 +193,18 @@ class MyForm extends React.Component {
     }
 
     toDegrees(angle) {
-        return;
+
+        var hitung = Math
+            .sin(angle * (Math.PI / 180))
+            .toFixed(3)
+
+        if (hitung === "-0.000") {
+            return 0
+        } else {
+
+            return hitung;
+
+        }
     }
     // now always in sync with the parent's state
     render() {
@@ -236,8 +245,8 @@ class MyForm extends React.Component {
                                     <TextField
                                         onChange={this.handleInputChange}
                                         style={style.lebarInput}
-                                        floatingLabelText="Masukan Nilai Sin"
-                                        hintText="Sin 0"
+                                        floatingLabelText="Masukan Nilai Sudut"
+                                        hintText="Sudut 0"
                                         type={"number"}></TextField>
                                 </ListItem>
                             </div>
